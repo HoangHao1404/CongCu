@@ -29,6 +29,12 @@
   --spacing-xl: 2.618rem;
   --spacing-xxl: 4.236rem;
   
+  /* Border radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-full: 9999px;
+  
   /* Font chữ */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -48,7 +54,7 @@
 
 ::-webkit-scrollbar-thumb {
   background-color: var(--color-wood);
-  border-radius: 2px;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -115,7 +121,7 @@
   
   /* Nút với phong cách Wabi-sabi */
   .btn {
-    @apply px-4 py-2 rounded-sm font-medium transition-all;
+    @apply px-4 py-2 rounded-full font-medium transition-all;
     position: relative;
     overflow: hidden;
     letter-spacing: 0.03em;
@@ -176,7 +182,7 @@
   
   /* Card với phong cách Wabi-sabi */
   .card {
-    @apply bg-white rounded-sm overflow-hidden;
+    @apply bg-white rounded-2xl overflow-hidden;
     border: 1px solid var(--color-stone-light);
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -189,7 +195,7 @@
   
   /* Input với phong cách Wabi-sabi */
   .input {
-    @apply w-full px-4 py-2 border rounded-sm focus:outline-none;
+    @apply w-full px-4 py-2 border rounded-full focus:outline-none;
     border: 1px solid var(--color-stone);
     background-color: var(--color-rice);
     transition: all 0.3s ease;
@@ -256,7 +262,7 @@
   /* Thanh tìm kiếm với phong cách Wabi-sabi */
   .wabi-search {
     border: 1px solid var(--color-stone-light);
-    border-radius: 2px;
+    border-radius: var(--radius-full);
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0,0,0,0.03);
   }
@@ -300,8 +306,8 @@
     background-color: var(--color-matcha-light);
     color: var(--color-matcha-dark);
     font-size: 0.75rem;
-    padding: 0.25rem 0.5rem;
-    border-radius: 2px;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
     letter-spacing: 0.05em;
   }
   
@@ -338,6 +344,20 @@
   .img-hover-zoom:hover .overlay-fade {
     opacity: 1;
   }
+  
+  /* Shadow styles */
+  .shadow-wabi {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  }
+  
+  .shadow-wabi-hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  
+  /* Texture background */
+  .bg-wabi-texture {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C7C5B' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
 }
 
 /* Hiệu ứng chữ viết tay */
@@ -357,10 +377,20 @@
   height: 2px;
   background: linear-gradient(90deg, var(--color-clay), var(--color-clay-light));
   transition: width 0.3s ease;
+  border-radius: var(--radius-full);
 }
 
 .wabi-title:hover::after {
   width: 100%;
+}
+
+/* Text shadow */
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.text-shadow-sm {
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
 /* Hiệu ứng fade-in cho các thành phần */
@@ -460,4 +490,26 @@
 
 .btn-hover-float:hover {
   transform: translateY(-4px);
+} 
+
+/* Hiệu ứng float */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* Hiệu ứng pulse nhẹ */
+.animate-pulse-light {
+  animation: pulseLight 2s ease-in-out infinite;
+}
+
+@keyframes pulseLight {
+  0% { opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { opacity: 0.8; }
 } 

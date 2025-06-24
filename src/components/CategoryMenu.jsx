@@ -102,14 +102,14 @@ const CategoryMenu = () => {
   };
   
   return (
-    <div className="bg-white border border-stone-light rounded-sm shadow-wabi overflow-hidden">
+    <div className="bg-white border border-stone-light rounded-lg shadow-wabi overflow-hidden">
       {/* Mobile Menu Toggle */}
       <div className="md:hidden">
         <button
           onClick={toggleMobileMenu}
           className="flex items-center justify-between w-full p-4 text-wood-dark hover:bg-stone-light hover:bg-opacity-50 transition-colors"
         >
-          <span className="font-medium">Danh mục sản phẩm</span>
+          <span className="font-medium font-serif">Danh mục sản phẩm</span>
           <svg
             className={`w-5 h-5 transition-transform duration-300 ${mobileMenuOpen ? 'transform rotate-180' : ''}`}
             fill="none"
@@ -129,13 +129,15 @@ const CategoryMenu = () => {
               <div className="group">
                 <button
                   onClick={() => toggleCategory(category.id)}
-                  className={`flex items-center justify-between w-full p-4 text-left transition-colors hover:bg-stone-light hover:bg-opacity-50 ${
+                  className={`flex items-center justify-between w-full p-4 text-left transition-all duration-300 hover:bg-stone-light hover:bg-opacity-50 ${
                     isActive(`/category/${category.id}`) ? 'bg-matcha bg-opacity-10 text-matcha-dark' : 'text-wood-dark'
                   }`}
                 >
                   <div className="flex items-center">
-                    <span className="mr-3 text-matcha-dark">{category.icon}</span>
-                    <span className={`${isActive(`/category/${category.id}`) ? 'font-medium' : ''}`}>
+                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-matcha-light bg-opacity-10 mr-3">
+                      <span className="text-matcha-dark">{category.icon}</span>
+                    </div>
+                    <span className={`${isActive(`/category/${category.id}`) ? 'font-medium' : ''} font-serif`}>
                       {category.name}
                     </span>
                   </div>
@@ -151,7 +153,7 @@ const CategoryMenu = () => {
                 </button>
                 
                 {/* Hover effect for desktop */}
-                <div className="hidden md:block absolute left-0 top-0 w-1 h-full bg-matcha scale-y-0 group-hover:scale-y-100 transition-transform origin-top duration-300"></div>
+                <div className="hidden md:block absolute left-0 top-0 w-1 h-full bg-matcha scale-y-0 group-hover:scale-y-100 transition-transform origin-top duration-300 rounded-r-full"></div>
               </div>
               
               {/* Subcategories */}
@@ -160,19 +162,19 @@ const CategoryMenu = () => {
                   expandedCategories[category.id] ? 'max-h-60' : 'max-h-0'
                 }`}
               >
-                <ul className="bg-stone-light bg-opacity-20 pl-10 py-1">
+                <ul className="bg-stone-light bg-opacity-20 pl-12 py-2 space-y-1">
                   {category.subcategories.map((subcategory) => (
                     <li key={subcategory.id}>
                       <Link
                         to={`/category/${category.id}/${subcategory.id}`}
-                        className={`block py-2 px-4 text-sm transition-colors hover:text-matcha ${
+                        className={`block py-2 px-4 text-sm transition-all duration-200 hover:text-matcha rounded-lg ${
                           isActive(`/category/${category.id}/${subcategory.id}`) 
-                            ? 'text-matcha font-medium' 
+                            ? 'text-matcha font-medium bg-matcha bg-opacity-5' 
                             : 'text-wood-dark'
                         }`}
                       >
                         <div className="flex items-center">
-                          <span className="w-1.5 h-1.5 rounded-full bg-matcha-light mr-2"></span>
+                          <span className="w-2 h-2 rounded-full bg-matcha-light mr-2"></span>
                           {subcategory.name}
                         </div>
                       </Link>
@@ -187,31 +189,31 @@ const CategoryMenu = () => {
           <li>
             <Link
               to="/sale"
-              className="flex items-center p-4 text-clay hover:bg-stone-light hover:bg-opacity-50 transition-colors group relative"
+              className="flex items-center p-4 text-clay hover:bg-stone-light hover:bg-opacity-50 transition-all duration-300 group relative"
             >
-              <span className="mr-3">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-clay bg-opacity-10 mr-3">
+                <svg className="w-5 h-5 text-clay" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8v13m0-13V6a4 4 0 00-4-4H5.52a2.5 2.5 0 01-2.5-2.5v0a2.5 2.5 0 012.5-2.5H12a4 4 0 014 4v0a4 4 0 01-4 4H8"></path>
                 </svg>
-              </span>
-              <span className="font-medium">Giảm giá</span>
-              <span className="ml-2 bg-clay text-white text-xs px-1.5 py-0.5 rounded-sm">-30%</span>
-              <div className="hidden md:block absolute left-0 top-0 w-1 h-full bg-clay scale-y-0 group-hover:scale-y-100 transition-transform origin-top duration-300"></div>
+              </div>
+              <span className="font-medium font-serif">Giảm giá</span>
+              <span className="ml-2 bg-clay text-white text-xs px-1.5 py-0.5 rounded-md">-30%</span>
+              <div className="hidden md:block absolute left-0 top-0 w-1 h-full bg-clay scale-y-0 group-hover:scale-y-100 transition-transform origin-top duration-300 rounded-r-full"></div>
             </Link>
           </li>
           <li>
             <Link
               to="/new-arrivals"
-              className="flex items-center p-4 text-matcha-dark hover:bg-stone-light hover:bg-opacity-50 transition-colors group relative"
+              className="flex items-center p-4 text-matcha-dark hover:bg-stone-light hover:bg-opacity-50 transition-all duration-300 group relative"
             >
-              <span className="mr-3">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-matcha bg-opacity-10 mr-3">
+                <svg className="w-5 h-5 text-matcha-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
-              </span>
-              <span className="font-medium">Mới về</span>
-              <span className="ml-2 bg-matcha text-white text-xs px-1.5 py-0.5 rounded-sm">New</span>
-              <div className="hidden md:block absolute left-0 top-0 w-1 h-full bg-matcha scale-y-0 group-hover:scale-y-100 transition-transform origin-top duration-300"></div>
+              </div>
+              <span className="font-medium font-serif">Mới về</span>
+              <span className="ml-2 bg-matcha text-white text-xs px-1.5 py-0.5 rounded-md">New</span>
+              <div className="hidden md:block absolute left-0 top-0 w-1 h-full bg-matcha scale-y-0 group-hover:scale-y-100 transition-transform origin-top duration-300 rounded-r-full"></div>
             </Link>
           </li>
         </ul>

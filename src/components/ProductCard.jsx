@@ -39,9 +39,9 @@ const ProductCard = ({ product }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <Link to={`/product/${product.id}`} className="block">
-        <div className="card overflow-hidden h-full flex flex-col">
+        <div className="card overflow-hidden h-full flex flex-col bg-white shadow-wabi hover:shadow-wabi-hover transition-all duration-300 rounded-2xl border border-stone-light">
           {/* Ảnh sản phẩm */}
-          <div className="relative overflow-hidden aspect-[3/4]">
+          <div className="relative overflow-hidden rounded-t-2xl aspect-[3/4]">
             <div className="img-hover-zoom h-full">
               <img
                 src={isHovered && productImages.length > 1 ? productImages[1] : productImages[0]}
@@ -67,28 +67,28 @@ const ProductCard = ({ product }) => {
             
             {/* Badge giảm giá */}
             {product.discount && (
-              <div className="absolute top-0 left-0 bg-clay text-white px-2 py-1 text-sm font-medium">
+              <div className="absolute top-3 left-3 bg-clay text-white px-2.5 py-1 text-sm font-medium rounded-full">
                 -{product.discount}%
               </div>
             )}
             
             {/* Badge sản phẩm mới */}
             {product.isNew && (
-              <div className="absolute top-0 right-0 bg-matcha text-white px-2 py-1 text-sm font-medium">
+              <div className="absolute top-3 right-3 bg-matcha text-white px-2.5 py-1 text-sm font-medium rounded-full">
                 Mới
               </div>
             )}
           </div>
           
           {/* Thông tin sản phẩm */}
-          <div className="p-4 flex-grow flex flex-col">
+          <div className="p-5 flex-grow flex flex-col">
             {/* Tên sản phẩm */}
-            <h3 className="font-serif text-lg mb-1 line-clamp-2 group-hover:text-matcha transition-colors">
+            <h3 className="font-serif text-lg mb-1.5 line-clamp-2 group-hover:text-matcha transition-colors">
               {product.name}
             </h3>
             
             {/* Mô tả ngắn */}
-            <p className="text-stone text-sm mb-2 line-clamp-2">
+            <p className="text-stone text-sm mb-3 line-clamp-2">
               {product.description}
             </p>
             
@@ -97,11 +97,11 @@ const ProductCard = ({ product }) => {
               <div className="flex items-center">
                 {discountedPrice ? (
                   <>
-                    <span className="text-clay font-medium">{formatPrice(discountedPrice)}</span>
+                    <span className="text-clay font-medium text-lg">{formatPrice(discountedPrice)}</span>
                     <span className="text-stone line-through text-sm ml-2">{formatPrice(product.price)}</span>
                   </>
                 ) : (
-                  <span className="text-wood-dark font-medium">{formatPrice(product.price)}</span>
+                  <span className="text-wood-dark font-medium text-lg">{formatPrice(product.price)}</span>
                 )}
               </div>
             </div>
@@ -142,7 +142,7 @@ const ProductCard = ({ product }) => {
         
         {/* Hiệu ứng nút bấm xem chi tiết */}
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-          <span className="bg-white bg-opacity-80 px-4 py-2 rounded-sm text-matcha-dark font-medium shadow-md transform -translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+          <span className="bg-white bg-opacity-90 px-4 py-2 rounded-full text-matcha-dark font-medium shadow-md transform -translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
             Xem chi tiết
           </span>
         </div>
@@ -150,7 +150,7 @@ const ProductCard = ({ product }) => {
       
       {/* Nút yêu thích */}
       <button 
-        className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white bg-opacity-70 hover:bg-opacity-100 flex items-center justify-center transition-all duration-300 z-10 opacity-0 group-hover:opacity-100"
+        className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white bg-opacity-80 hover:bg-opacity-100 flex items-center justify-center transition-all duration-300 z-10 opacity-0 group-hover:opacity-100 shadow-sm hover:shadow-md"
         onClick={(e) => e.stopPropagation()}
         aria-label="Yêu thích"
       >

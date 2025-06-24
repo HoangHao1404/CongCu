@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from '../redux/slices/authSlice';
@@ -14,7 +14,9 @@ const Navbar = () => {
   const { totalQuantity } = useCart();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const categoryRef = useRef(null);
   
   // Theo dõi scroll để thay đổi hiệu ứng navbar
   useEffect(() => {
@@ -36,7 +38,22 @@ const Navbar = () => {
   useEffect(() => {
     setIsMenuOpen(false);
     setIsProfileOpen(false);
+    setIsCategoryOpen(false);
   }, [location.pathname]);
+  
+  // Đóng dropdown khi click ra ngoài
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (categoryRef.current && !categoryRef.current.contains(event.target)) {
+        setIsCategoryOpen(false);
+      }
+    };
+    
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
   
   const handleLogout = () => {
     dispatch(logoutUser());
@@ -48,6 +65,15 @@ const Navbar = () => {
   const isActive = (path) => {
     return location.pathname === path;
   };
+  
+  // Danh sách danh mục
+  const categories = [
+    { id: 'ao', name: 'Áo', path: '/category/ao' },
+    { id: 'quan', name: 'Quần', path: '/category/quan' },
+    { id: 'giay', name: 'Giày', path: '/category/giay' },
+    { id: 'phu-kien', name: 'Phụ kiện', path: '/category/phu-kien' },
+    { id: 'bo-suu-tap', name: 'Bộ sưu tập', path: '/category/bo-suu-tap' },
+  ];
   
   return (
     <nav 
@@ -63,7 +89,7 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
               <div className="relative w-12 h-12 mr-3">
-                <div className="absolute inset-0 bg-matcha rounded-sm transform rotate-45"></div>
+                <div className="absolute inset-0 bg-matcha rounded-lg transform rotate-45"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <span className="text-rice font-serif text-2xl">W</span>
                 </div>
@@ -82,9 +108,48 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             <NavLink to="/" label="Trang chủ" isActive={isActive('/')} />
-            <NavLink to="/category/ao" label="Áo" isActive={isActive('/category/ao')} />
-            <NavLink to="/category/quan" label="Quần" isActive={isActive('/category/quan')} />
-            <NavLink to="/category/giay" label="Giày" isActive={isActive('/category/giay')} />
+            
+            {/* Categories Dropdown */}
+            <div className="relative" ref={categoryRef}>
+              <button 
+                onClick={() => setIsCategoryOpen(!isCategoryOpen)}
+                className={`flex items-center space-x-1 relative text-wood-dark hover:text-matcha transition-colors py-1 ${
+                  location.pathname.includes('/category') ? 'font-medium text-matcha' : ''
+                }`}
+              >
+                <span>Danh mục</span>
+                <svg 
+                  className={`w-4 h-4 transition-transform duration-300 ${isCategoryOpen ? 'rotate-180' : ''}`} 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24" 
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 9l-7 7-7-7"></path>
+                </svg>
+                <span 
+                  className={`absolute bottom-0 left-0 w-full h-0.5 bg-matcha transform origin-left transition-transform duration-300 ${
+                    location.pathname.includes('/category') ? 'scale-x-100' : 'scale-x-0'
+                  }`}
+                />
+              </button>
+              
+              {isCategoryOpen && (
+                <div className="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-wabi py-2 z-10 border border-stone-light scale-in">
+                  {categories.map((category) => (
+                    <Link
+                      key={category.id}
+                      to={category.path}
+                      className="block px-4 py-2 text-sm text-wood-dark hover:bg-stone-light hover:bg-opacity-50 hover:text-matcha transition-colors"
+                      onClick={() => setIsCategoryOpen(false)}
+                    >
+                      {category.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+            
             <NavLink 
               to="/upload-search" 
               label={
@@ -139,7 +204,7 @@ const Navbar = () => {
                 </button>
                 
                 {isProfileOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-sm shadow-wabi py-1 z-10 border border-stone-light scale-in">
+                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-wabi py-1 z-10 border border-stone-light scale-in">
                     <Link
                       to="/profile"
                       className="block px-4 py-2 text-sm text-wood-dark hover:bg-stone-light hover:text-matcha-dark"
@@ -184,7 +249,7 @@ const Navbar = () => {
                 <Link to="/login" className="text-wood-dark hover:text-matcha border-b border-transparent hover:border-matcha transition-colors">
                   Đăng nhập
                 </Link>
-                <Link to="/register" className="bg-matcha text-white px-4 py-2 rounded-sm hover:bg-matcha-dark transition-all transform hover:-translate-y-1 hover:shadow-md">
+                <Link to="/register" className="bg-matcha text-white px-4 py-2 rounded-lg hover:bg-matcha-dark transition-all transform hover:-translate-y-1 hover:shadow-md">
                   Đăng ký
                 </Link>
               </div>
@@ -255,39 +320,46 @@ const Navbar = () => {
                 isActive={isActive('/')}
                 onClick={() => setIsMenuOpen(false)}
               />
-              <MobileNavLink 
-                to="/category/ao" 
-                label="Áo"
-                icon={
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              
+              {/* Mobile Categories Dropdown */}
+              <div className="py-3">
+                <button
+                  onClick={() => setIsCategoryOpen(!isCategoryOpen)}
+                  className="flex items-center justify-between w-full text-wood-dark hover:text-matcha"
+                >
+                  <div className="flex items-center">
+                    <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    Danh mục
+                  </div>
+                  <svg 
+                    className={`w-5 h-5 transition-transform duration-300 ${isCategoryOpen ? 'rotate-180' : ''}`} 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 9l-7 7-7-7"></path>
                   </svg>
-                }
-                isActive={isActive('/category/ao')}
-                onClick={() => setIsMenuOpen(false)}
-              />
-              <MobileNavLink 
-                to="/category/quan" 
-                label="Quần"
-                icon={
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                  </svg>
-                }
-                isActive={isActive('/category/quan')}
-                onClick={() => setIsMenuOpen(false)}
-              />
-              <MobileNavLink 
-                to="/category/giay" 
-                label="Giày"
-                icon={
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                  </svg>
-                }
-                isActive={isActive('/category/giay')}
-                onClick={() => setIsMenuOpen(false)}
-              />
+                </button>
+                
+                {isCategoryOpen && (
+                  <div className="mt-2 pl-8 border-l-2 border-stone-light space-y-3">
+                    {categories.map((category) => (
+                      <Link
+                        key={category.id}
+                        to={category.path}
+                        className="block py-2 text-wood-dark hover:text-matcha"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {category.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+              
               <MobileNavLink 
                 to="/upload-search" 
                 label="Tìm bằng ảnh"
@@ -342,14 +414,14 @@ const Navbar = () => {
                   <div className="flex flex-col space-y-3">
                     <Link 
                       to="/login" 
-                      className="bg-rice border border-matcha text-matcha py-2.5 rounded-sm text-center font-medium hover:bg-matcha-light hover:bg-opacity-10 transition-colors"
+                      className="bg-rice border border-matcha text-matcha py-2.5 rounded-lg text-center font-medium hover:bg-matcha-light hover:bg-opacity-10 transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Đăng nhập
                     </Link>
                     <Link 
                       to="/register" 
-                      className="bg-matcha text-white py-2.5 rounded-sm text-center font-medium hover:bg-matcha-dark transition-colors"
+                      className="bg-matcha text-white py-2.5 rounded-lg text-center font-medium hover:bg-matcha-dark transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Đăng ký

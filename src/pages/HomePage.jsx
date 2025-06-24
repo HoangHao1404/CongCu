@@ -71,9 +71,9 @@ const HomePage = () => {
     },
     {
       id: 2,
-      title: 'Nghệ thuật thủ công',
-      subtitle: 'Mỗi sản phẩm là một tác phẩm',
-      description: 'Chất liệu tự nhiên, kỹ thuật truyền thống, tôn vinh vẻ đẹp mộc mạc',
+      title: 'Vẻ đẹp mộc mạc',
+      subtitle: 'Từ thiên nhiên đến trang phục',
+      description: 'Chất liệu tự nhiên, kỹ thuật truyền thống, tôn vinh vẻ đẹp giản đơn',
       image: 'https://images.unsplash.com/photo-1550047510-40e88d132d41?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
       link: '/category/giay',
     },
@@ -143,18 +143,18 @@ const HomePage = () => {
                     <div className="flex flex-wrap gap-4">
                       <Link
                         to={banner.link}
-                        className="btn btn-primary btn-ripple px-8 py-3 text-lg"
+                        className="btn btn-primary btn-ripple px-8 py-3 text-lg rounded-full"
                       >
                         Khám phá ngay
                       </Link>
                       <Link
-                        to="/upload-search"
-                        className="btn bg-rice text-wood-dark hover:bg-stone-light px-8 py-3 text-lg flex items-center"
+                        to="/category/featured"
+                        className="btn bg-rice text-wood-dark hover:bg-stone-light px-8 py-3 text-lg flex items-center rounded-full"
                       >
                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 8V6a2 2 0 012-2h2M4 16v2a2 2 0 002 2h2M16 4h2a2 2 0 012 2v2M16 20h2a2 2 0 002-2v-2"></path>
                         </svg>
-                        Tìm bằng ảnh
+                        Bộ sưu tập
                       </Link>
                     </div>
                   </div>
@@ -200,7 +200,7 @@ const HomePage = () => {
             {features.map((feature, index) => (
               <div 
                 key={index}
-                className="bg-white p-8 rounded-sm shadow-wabi border border-stone-light text-center transform transition-all duration-500 hover:-translate-y-1 hover:shadow-wabi-hover stagger-item"
+                className="bg-white p-8 rounded-2xl shadow-wabi border border-stone-light text-center transform transition-all duration-500 hover:-translate-y-1 hover:shadow-wabi-hover stagger-item"
               >
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-matcha-light bg-opacity-20 mb-4 text-matcha-dark">
                   {feature.icon}
@@ -223,7 +223,7 @@ const HomePage = () => {
               <CategoryMenu />
               
               {/* Secondary Banner */}
-              <div className="mt-10 rounded-sm overflow-hidden border border-stone-light reveal">
+              <div className="mt-10 rounded-2xl overflow-hidden border border-stone-light reveal">
                 <div className="relative img-hover-zoom">
                   <img
                     src={banners[1].image}
@@ -235,7 +235,7 @@ const HomePage = () => {
                     <p className="text-rice text-center mb-5">{banners[1].description}</p>
                     <Link
                       to={banners[1].link}
-                      className="bg-rice text-wood-dark px-6 py-2 rounded-sm hover:bg-stone-light transition-colors btn-hover-float"
+                      className="bg-rice text-wood-dark px-6 py-2 rounded-full hover:bg-stone-light transition-colors btn-hover-float"
                     >
                       Xem ngay
                     </Link>
@@ -260,7 +260,7 @@ const HomePage = () => {
                   <Spinner size="large" />
                 </div>
               ) : error ? (
-                <div className="bg-red-50 p-4 rounded-sm border-l-4 border-red-500">
+                <div className="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
                   <p className="text-red-800">{error}</p>
                 </div>
               ) : (
@@ -274,28 +274,34 @@ const HomePage = () => {
               )}
             </div>
             
-            {/* AI Recommendation Banner */}
-            <div className="bg-matcha bg-opacity-10 border border-matcha-light rounded-sm p-8 mb-12 reveal">
-              <div className="flex flex-col md:flex-row items-center justify-between">
-                <div className="mb-6 md:mb-0 md:mr-8">
-                  <h3 className="text-2xl font-serif text-wood-dark mb-3">Tìm kiếm bằng hình ảnh</h3>
-                  <p className="text-stone-dark mb-5">
-                    Tải lên hình ảnh sản phẩm bạn thích, AI của chúng tôi sẽ tìm những sản phẩm tương tự trong phong cách Wabi-sabi!
+            {/* Thủ công tinh tế Banner */}
+            <div className="bg-stone-light bg-opacity-30 rounded-2xl p-8 mb-12 reveal overflow-hidden">
+              <div className="flex flex-col md:flex-row items-center">
+                <div className="mb-6 md:mb-0 md:mr-8 md:w-1/2">
+                  <h3 className="text-3xl font-serif text-wood-dark mb-3">Thủ công tinh tế</h3>
+                  <p className="text-stone-dark mb-5 text-lg">
+                    Mỗi sản phẩm là một tác phẩm nghệ thuật được tạo ra bởi những nghệ nhân lành nghề, mang đậm dấu ấn văn hóa và tinh thần Wabi-sabi.
                   </p>
                   <Link
-                    to="/upload-search"
-                    className="btn btn-primary inline-flex items-center btn-hover-float"
+                    to="/category/featured"
+                    className="btn btn-primary inline-flex items-center btn-hover-float rounded-full"
                   >
-                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                    </svg>
-                    Thử ngay
+                    Khám phá bộ sưu tập
                   </Link>
                 </div>
-                <div className="flex-shrink-0 bg-white p-6 rounded-full shadow-wabi transform transition-transform hover:rotate-3 hover:scale-105">
-                  <svg className="w-24 h-24 text-matcha" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                  </svg>
+                <div className="md:w-1/2 relative">
+                  <img 
+                    src="https://images.unsplash.com/photo-1603031616621-9c8b9c08a2b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                    alt="Thủ công tinh tế" 
+                    className="w-full h-64 object-cover rounded-lg shadow-wabi"
+                  />
+                  <div className="absolute -bottom-4 -right-4 hidden md:block">
+                    <div className="bg-matcha w-16 h-16 rounded-full flex items-center justify-center text-white shadow-lg">
+                      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
+                      </svg>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -329,7 +335,7 @@ const HomePage = () => {
         </div>
         
         {/* Philosophy Section */}
-        <div className="bg-white rounded-sm shadow-wabi border border-stone-light p-8 md:p-12 mb-16 reveal" ref={philosophyRef}>
+        <div className="bg-white rounded-2xl shadow-wabi border border-stone-light p-8 md:p-12 mb-16 reveal" ref={philosophyRef}>
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8">
               <h2 className="text-3xl font-serif text-wood-dark mb-6">Triết lý Wabi-sabi</h2>
@@ -340,10 +346,10 @@ const HomePage = () => {
                 Mỗi sản phẩm của chúng tôi đều mang đặc tính độc đáo, thể hiện sự trân trọng đối với vẻ đẹp tự nhiên và tính chất thủ công.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link to="/about" className="btn btn-secondary btn-hover-float">
+                <Link to="/about" className="btn btn-secondary btn-hover-float rounded-full">
                   Tìm hiểu thêm
                 </Link>
-                <Link to="/category/featured" className="btn btn-outline btn-hover-float">
+                <Link to="/category/featured" className="btn btn-outline btn-hover-float rounded-full">
                   Khám phá bộ sưu tập
                 </Link>
               </div>
@@ -353,13 +359,13 @@ const HomePage = () => {
                 <img 
                   src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
                   alt="Wabi-sabi philosophy" 
-                  className="w-full h-64 md:h-80 object-cover rounded-sm"
+                  className="w-full h-64 md:h-80 object-cover rounded-2xl"
                 />
                 <div className="absolute -bottom-4 -right-4 hidden md:block">
                   <img 
                     src="https://images.unsplash.com/photo-1563911892437-1feda0179e1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" 
                     alt="Pottery" 
-                    className="w-32 h-32 object-cover rounded-sm border-4 border-rice shadow-wabi"
+                    className="w-32 h-32 object-cover rounded-2xl border-4 border-rice shadow-wabi"
                   />
                 </div>
               </div>
@@ -368,7 +374,7 @@ const HomePage = () => {
         </div>
         
         {/* Newsletter Subscription */}
-        <div className="bg-wood bg-opacity-10 rounded-sm p-8 md:p-12 text-center mb-16 reveal">
+        <div className="bg-wood bg-opacity-10 rounded-2xl p-8 md:p-12 text-center mb-16 reveal">
           <h2 className="text-2xl md:text-3xl font-serif text-wood-dark mb-4">Đăng ký nhận thông tin</h2>
           <p className="text-stone-dark mb-8 max-w-2xl mx-auto">
             Nhận thông tin về bộ sưu tập mới, sự kiện đặc biệt và những câu chuyện thú vị về triết lý Wabi-sabi
@@ -377,10 +383,10 @@ const HomePage = () => {
             <input 
               type="email" 
               placeholder="Email của bạn" 
-              className="input flex-grow py-3"
+              className="input flex-grow py-3 rounded-full"
               required
             />
-            <button type="submit" className="btn btn-primary whitespace-nowrap">
+            <button type="submit" className="btn btn-primary whitespace-nowrap rounded-full">
               Đăng ký
             </button>
           </form>
@@ -395,12 +401,12 @@ const HomePage = () => {
             <p className="text-stone-dark">Theo dõi chúng tôi trên Instagram</p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2 reveal">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 reveal">
             {[1, 2, 3, 4, 5, 6].map((item) => (
               <a 
                 key={item} 
                 href="#" 
-                className="block overflow-hidden aspect-square img-hover-zoom"
+                className="block overflow-hidden rounded-2xl aspect-square img-hover-zoom"
                 aria-label="Instagram post"
               >
                 <img 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { register } from '../redux/slices/authSlice';
+import { registerUser } from '../redux/slices/authSlice';
 import Spinner from '../components/Spinner';
 import Toast from '../components/Toast';
 
@@ -54,7 +54,7 @@ const RegisterPage = () => {
     }
     
     // Dispatch register action
-    dispatch(register({ name, email, password }));
+    dispatch(registerUser({ name, email, password }));
   };
   
   return (

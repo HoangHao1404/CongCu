@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../redux/slices/authSlice';
+import { loginUser } from '../redux/slices/authSlice';
 import Spinner from '../components/Spinner';
 import Toast from '../components/Toast';
 
@@ -41,7 +41,7 @@ const LoginPage = () => {
     }
     
     // Dispatch login action
-    dispatch(login({ email, password }));
+    dispatch(loginUser({ email, password }));
   };
   
   return (

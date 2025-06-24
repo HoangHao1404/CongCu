@@ -6,7 +6,8 @@ import { fetchProducts } from '../redux/slices/productSlice';
 import { products as mockProducts } from '../services/mockData';
 
 const SearchBar = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [query, setQuery] = useState('');
+  const [isFocused, setIsFocused] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -31,7 +32,7 @@ const SearchBar = () => {
     return debouncedValue;
   };
   
-  const debouncedSearchTerm = useDebounce(searchTerm, 300);
+  const debouncedSearchTerm = useDebounce(query, 300);
   
   // Fetch suggestions when search term changes
   useEffect(() => {
@@ -77,57 +78,61 @@ const SearchBar = () => {
     };
   }, []);
   
-  const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
-    setShowSuggestions(true);
-  };
-  
-  const handleSearchSubmit = (e) => {
+  const handleSearch = (e) => {
     e.preventDefault();
-    
-    if (searchTerm.trim()) {
-      // Dispatch action to fetch products with search term
-      dispatch(fetchProducts({ search: searchTerm.trim() }));
-      
-      // Navigate to search results page
-      navigate(`/search?q=${encodeURIComponent(searchTerm.trim())}`);
-      
-      // Clear suggestions
+    if (query.trim()) {
+      dispatch(fetchProducts({ search: query.trim() }));
+      navigate(`/search?q=${encodeURIComponent(query.trim())}`);
+      setQuery('');
       setShowSuggestions(false);
     }
   };
   
   const handleSuggestionClick = (suggestion) => {
-    setSearchTerm(suggestion.name);
+    setQuery(suggestion.name);
     setShowSuggestions(false);
     navigate(`/product/${suggestion.id}`);
   };
   
   return (
     <div className="relative" ref={searchRef}>
-      <form onSubmit={handleSearchSubmit} className="flex w-full wabi-search">
-        <div className="relative flex-grow">
-          <input
-            type="text"
-            value={searchTerm}
-            onChange={handleSearchChange}
-            onFocus={() => setShowSuggestions(true)}
-            placeholder="Tìm kiếm sản phẩm..."
-            className="w-full px-4 py-2 focus:outline-none bg-rice text-wood-dark placeholder-stone"
-          />
-          {isLoading && (
-            <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-              <div className="wabi-spinner w-4 h-4"></div>
-            </div>
-          )}
-        </div>
+      <form 
+        onSubmit={handleSearch} 
+        className={`wabi-search flex items-center transition-all duration-300 ${
+          isFocused ? 'ring-1 ring-matcha' : ''
+        }`}
+      >
+        <input
+          type="text"
+          placeholder="Tìm kiếm sản phẩm..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
+          className="flex-grow px-4 py-2 text-sm text-wood-dark bg-rice focus:outline-none placeholder-stone"
+        />
         <button
           type="submit"
-          className="bg-matcha text-white px-4 py-2 hover:bg-matcha-dark transition-colors"
+          className="px-4 py-2 bg-matcha text-white hover:bg-matcha-dark transition-colors focus:outline-none"
+          aria-label="Tìm kiếm"
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-          </svg>
+          <div className="flex items-center">
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              ></path>
+            </svg>
+            <span className="ml-1 hidden sm:inline">Tìm</span>
+          </div>
         </button>
       </form>
       

@@ -79,7 +79,7 @@ const Navbar = () => {
     <nav 
       className={`wabi-navbar sticky top-0 z-50 transition-all duration-500 ${
         scrolled 
-          ? 'shadow-md bg-rice bg-opacity-95 backdrop-blur-sm py-2' 
+          ? 'shadow-wabi-depth bg-rice/90 backdrop-blur-md py-2' 
           : 'py-4 bg-rice'
       }`}
     >
@@ -87,19 +87,19 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center">
-              <div className="relative w-12 h-12 mr-3">
-                <div className="absolute inset-0 bg-matcha rounded-lg transform rotate-45"></div>
+            <Link to="/" className="flex items-center group">
+              <div className="relative w-14 h-14 mr-3 overflow-hidden transition-all duration-500 group-hover:rotate-12">
+                <div className="absolute inset-0 bg-gradient-wabi from-matcha to-moss-light rounded-2xl transform rotate-45 shadow-wabi-3d animate-subtle-bounce"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-rice font-serif text-2xl">W</span>
+                  <span className="text-rice font-serif text-3xl text-shadow">W</span>
                 </div>
               </div>
               <div className="hidden sm:block">
-                <span className="text-2xl font-serif text-wood-dark tracking-wide">
+                <span className="text-2xl font-serif text-wood-dark tracking-wide group-hover:text-matcha transition-colors duration-300">
                   Wabi Shop
                 </span>
                 <span className="block text-xs text-stone-dark font-sans tracking-widest uppercase">
-                  Vẻ đẹp từ sự không hoàn hảo
+                  VẺ ĐẸP TỪ SỰ KHÔNG HOÀN HẢO • 2025
                 </span>
               </div>
             </Link>
@@ -135,12 +135,12 @@ const Navbar = () => {
               </button>
               
               {isCategoryOpen && (
-                <div className="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-wabi py-2 z-10 border border-stone-light scale-in">
+                <div className="absolute top-full left-0 mt-1 w-52 glass-card rounded-xl py-2 z-10 animate-fade-in">
                   {categories.map((category) => (
                     <Link
                       key={category.id}
                       to={category.path}
-                      className="block px-4 py-2 text-sm text-wood-dark hover:bg-stone-light hover:bg-opacity-50 hover:text-matcha transition-colors"
+                      className="block px-4 py-2.5 text-sm text-wood-dark hover:bg-matcha/5 hover:text-matcha transition-colors"
                       onClick={() => setIsCategoryOpen(false)}
                     >
                       {category.name}
@@ -174,14 +174,14 @@ const Navbar = () => {
             {/* Cart */}
             <Link 
               to="/cart" 
-              className="relative p-2 text-wood-dark hover:text-matcha transition-colors"
+              className="relative p-2 text-wood-dark hover:text-matcha transition-colors group"
               aria-label="Giỏ hàng"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg className="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
               </svg>
               {totalQuantity > 0 && (
-                <span className="absolute -top-1 -right-1 bg-clay text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                <span className="absolute -top-1 -right-1 bg-gradient-wabi from-clay to-terracotta text-white text-xs w-5 h-5 flex items-center justify-center rounded-full shadow-wabi-3d">
                   {totalQuantity}
                 </span>
               )}
@@ -194,7 +194,7 @@ const Navbar = () => {
                   onClick={() => setIsProfileOpen(!isProfileOpen)}
                   className="flex items-center space-x-2 text-wood-dark hover:text-matcha focus:outline-none transition-colors"
                 >
-                  <div className="w-8 h-8 bg-matcha-light rounded-full flex items-center justify-center text-white">
+                  <div className="w-9 h-9 bg-gradient-wabi from-matcha to-moss-light rounded-full flex items-center justify-center text-white shadow-wabi">
                     {user.name.charAt(0).toUpperCase()}
                   </div>
                   <span className="hidden sm:block font-medium">{user.name}</span>
@@ -204,10 +204,10 @@ const Navbar = () => {
                 </button>
                 
                 {isProfileOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-wabi py-1 z-10 border border-stone-light scale-in">
+                  <div className="absolute right-0 mt-2 w-52 glass-card rounded-xl py-1 z-10 shadow-wabi-depth animate-fade-in">
                     <Link
                       to="/profile"
-                      className="block px-4 py-2 text-sm text-wood-dark hover:bg-stone-light hover:text-matcha-dark"
+                      className="block px-4 py-2.5 text-sm text-wood-dark hover:bg-matcha/5 hover:text-matcha transition-colors"
                       onClick={() => setIsProfileOpen(false)}
                     >
                       <div className="flex items-center">
@@ -219,7 +219,7 @@ const Navbar = () => {
                     </Link>
                     <Link
                       to="/orders"
-                      className="block px-4 py-2 text-sm text-wood-dark hover:bg-stone-light hover:text-matcha-dark"
+                      className="block px-4 py-2.5 text-sm text-wood-dark hover:bg-matcha/5 hover:text-matcha transition-colors"
                       onClick={() => setIsProfileOpen(false)}
                     >
                       <div className="flex items-center">
@@ -229,10 +229,10 @@ const Navbar = () => {
                         Đơn hàng
                       </div>
                     </Link>
-                    <div className="border-t border-stone-light my-1"></div>
+                    <div className="border-t border-stone-light/30 my-1"></div>
                     <button
                       onClick={handleLogout}
-                      className="block w-full text-left px-4 py-2 text-sm text-wood-dark hover:bg-stone-light hover:text-matcha-dark"
+                      className="block w-full text-left px-4 py-2.5 text-sm text-wood-dark hover:bg-matcha/5 hover:text-matcha transition-colors"
                     >
                       <div className="flex items-center">
                         <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -249,7 +249,7 @@ const Navbar = () => {
                 <Link to="/login" className="text-wood-dark hover:text-matcha border-b border-transparent hover:border-matcha transition-colors">
                   Đăng nhập
                 </Link>
-                <Link to="/register" className="bg-matcha text-white px-4 py-2 rounded-lg hover:bg-matcha-dark transition-all transform hover:-translate-y-1 hover:shadow-md">
+                <Link to="/register" className="bg-gradient-wabi from-matcha to-moss text-white px-5 py-2.5 rounded-full hover:shadow-wabi-3d transition-all transform hover:-translate-y-1">
                   Đăng ký
                 </Link>
               </div>
@@ -260,14 +260,14 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <Link 
               to="/cart" 
-              className="relative p-2 text-wood-dark mr-2"
+              className="relative p-2 text-wood-dark mr-2 group"
               aria-label="Giỏ hàng"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg className="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
               </svg>
               {totalQuantity > 0 && (
-                <span className="absolute -top-1 -right-1 bg-clay text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                <span className="absolute -top-1 -right-1 bg-gradient-wabi from-clay to-terracotta text-white text-xs w-5 h-5 flex items-center justify-center rounded-full shadow-wabi-3d">
                   {totalQuantity}
                 </span>
               )}
@@ -306,7 +306,7 @@ const Navbar = () => {
       
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-rice border-t border-stone-light animate-fade-in">
+        <div className="md:hidden bg-rice/95 backdrop-blur-md border-t border-stone-light/20 animate-fade-in">
           <div className="container mx-auto px-4 py-4">
             <div className="flex flex-col space-y-3">
               <MobileNavLink 
@@ -345,12 +345,12 @@ const Navbar = () => {
                 </button>
                 
                 {isCategoryOpen && (
-                  <div className="mt-2 pl-8 border-l-2 border-stone-light space-y-3">
+                  <div className="mt-2 pl-8 border-l-2 border-matcha/20 space-y-3 animate-fade-in">
                     {categories.map((category) => (
                       <Link
                         key={category.id}
                         to={category.path}
-                        className="block py-2 text-wood-dark hover:text-matcha"
+                        className="block py-2 text-wood-dark hover:text-matcha transition-colors"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {category.name}
@@ -372,7 +372,7 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
               />
               
-              <div className="border-t border-stone-light my-2"></div>
+              <div className="border-t border-stone-light/30 my-2"></div>
               
               {user ? (
                 <>
@@ -414,14 +414,14 @@ const Navbar = () => {
                   <div className="flex flex-col space-y-3">
                     <Link 
                       to="/login" 
-                      className="bg-rice border border-matcha text-matcha py-2.5 rounded-lg text-center font-medium hover:bg-matcha-light hover:bg-opacity-10 transition-colors"
+                      className="bg-rice border border-matcha text-matcha py-2.5 rounded-lg text-center font-medium hover:bg-matcha/10 transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Đăng nhập
                     </Link>
                     <Link 
                       to="/register" 
-                      className="bg-matcha text-white py-2.5 rounded-lg text-center font-medium hover:bg-matcha-dark transition-colors"
+                      className="bg-gradient-wabi from-matcha to-moss text-white py-2.5 rounded-lg text-center font-medium hover:shadow-wabi-3d transition-all"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Đăng ký
@@ -447,9 +447,9 @@ const NavLink = ({ to, label, isActive }) => (
   >
     {label}
     <span 
-      className={`absolute bottom-0 left-0 w-full h-0.5 bg-matcha transform origin-left transition-transform duration-300 ${
+      className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-wabi from-matcha to-moss transform origin-left transition-transform duration-300 ${
         isActive ? 'scale-x-100' : 'scale-x-0'
-      }`}
+      } hover:scale-x-100`}
     />
   </Link>
 );
@@ -460,10 +460,12 @@ const MobileNavLink = ({ to, label, icon, isActive, onClick }) => (
     to={to} 
     className={`py-3 flex items-center ${
       isActive ? 'text-matcha font-medium' : 'text-wood-dark'
-    } hover:text-matcha`} 
+    } hover:text-matcha transition-colors`} 
     onClick={onClick}
   >
-    <span className="mr-3">{icon}</span>
+    <div className={`flex items-center justify-center w-8 h-8 rounded-full ${isActive ? 'bg-matcha/10' : 'bg-stone-light/30'} mr-3`}>
+      {icon}
+    </div>
     {label}
   </Link>
 );

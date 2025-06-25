@@ -5,21 +5,26 @@
 @tailwind utilities;
 
 :root {
-  /* Bảng màu Wabi-sabi tinh tế hơn */
-  --color-matcha: #8A9A5B;
-  --color-matcha-light: #B9C68D;
-  --color-matcha-dark: #5D6B3C;
-  --color-wood: #9C7C5B;
-  --color-wood-light: #C4A47D;
-  --color-wood-dark: #6A533C;
-  --color-clay: #B97A57;
-  --color-clay-light: #D5A98B;
+  /* Bảng màu Wabi-sabi hiện đại 2025 */
+  --color-matcha: #7EA479;
+  --color-matcha-light: #A6C09F;
+  --color-matcha-dark: #4D7146;
+  --color-wood: #A58D7F;
+  --color-wood-light: #C9B5A8;
+  --color-wood-dark: #7D6355;
+  --color-clay: #C17F5E;
+  --color-clay-light: #E0A98D;
+  --color-clay-dark: #8F5B42;
   --color-stone: #9A9A9A;
-  --color-stone-light: #F0EDE5;
+  --color-stone-light: #F5F2EB;
   --color-stone-dark: #636363;
-  --color-rice: #F5F2E9;
-  --color-rice-dark: #EAE5D6;
-  --color-ink: #2D2D2D;
+  --color-rice: #F9F6F0;
+  --color-rice-dark: #EFE9DD;
+  --color-ink: #2A2522;
+  --color-moss: #6A7B6F;
+  --color-moss-light: #9DAF9F;
+  --color-moss-dark: #485950;
+  --color-terracotta: #C56E52;
   
   /* Tỉ lệ vàng cho spacing */
   --spacing-xs: 0.382rem;
@@ -33,7 +38,14 @@
   --radius-sm: 0.5rem;
   --radius-md: 1rem;
   --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
   --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-wabi: 0 2px 10px rgba(0,0,0,0.05);
+  --shadow-wabi-hover: 0 15px 30px rgba(0,0,0,0.1);
+  --shadow-wabi-3d: 0 10px 30px -10px rgba(0,0,0,0.2), 0 5px 15px -5px rgba(0,0,0,0.1);
+  --shadow-wabi-depth: 0 1px 1px rgba(0,0,0,0.08), 0 2px 2px rgba(0,0,0,0.06), 0 4px 4px rgba(0,0,0,0.04), 0 8px 8px rgba(0,0,0,0.02);
   
   /* Font chữ */
   font-synthesis: none;
@@ -119,13 +131,13 @@
     max-width: 1440px;
   }
   
-  /* Nút với phong cách Wabi-sabi */
+  /* Nút với phong cách Wabi-sabi 2025 */
   .btn {
     @apply px-4 py-2 rounded-full font-medium transition-all;
     position: relative;
     overflow: hidden;
     letter-spacing: 0.03em;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: var(--shadow-wabi);
   }
   
   .btn::before {
@@ -144,66 +156,67 @@
   }
   
   .btn-primary {
-    background-color: var(--color-matcha);
+    background: linear-gradient(135deg, var(--color-matcha), var(--color-moss));
     color: white;
-    border: 1px solid var(--color-matcha-dark);
+    border: none;
   }
   
   .btn-primary:hover {
-    background-color: var(--color-matcha-dark);
+    box-shadow: var(--shadow-wabi-3d);
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
   
   .btn-secondary {
-    background-color: var(--color-wood-light);
-    color: var(--color-ink);
-    border: 1px solid var(--color-wood);
+    background: linear-gradient(135deg, var(--color-wood-light), var(--color-wood));
+    color: white;
+    border: none;
   }
   
   .btn-secondary:hover {
-    background-color: var(--color-wood);
-    color: white;
+    box-shadow: var(--shadow-wabi-3d);
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
   
   .btn-outline {
     background-color: transparent;
     color: var(--color-matcha);
     border: 1px solid var(--color-matcha);
+    box-shadow: none;
   }
   
   .btn-outline:hover {
     background-color: var(--color-matcha-light);
+    background-opacity: 0.1;
     color: var(--color-matcha-dark);
     border-color: var(--color-matcha);
+    box-shadow: var(--shadow-wabi);
   }
   
-  /* Card với phong cách Wabi-sabi */
+  /* Card với phong cách Wabi-sabi 2025 */
   .card {
-    @apply bg-white rounded-2xl overflow-hidden;
-    border: 1px solid var(--color-stone-light);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    @apply bg-white rounded-xl overflow-hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow-wabi);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
   
   .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-wabi-3d);
   }
   
-  /* Input với phong cách Wabi-sabi */
+  /* Input với phong cách Wabi-sabi 2025 */
   .input {
     @apply w-full px-4 py-2 border rounded-full focus:outline-none;
-    border: 1px solid var(--color-stone);
+    border: 1px solid var(--color-stone-light);
     background-color: var(--color-rice);
     transition: all 0.3s ease;
   }
   
   .input:focus {
     border-color: var(--color-matcha);
-    box-shadow: 0 0 0 2px rgba(140, 158, 94, 0.2);
+    box-shadow: 0 0 0 2px rgba(126, 164, 121, 0.2);
   }
   
   /* Container với phong cách Wabi-sabi */
@@ -212,13 +225,14 @@
     max-width: 1440px;
   }
   
-  /* Navbar với phong cách Wabi-sabi */
+  /* Navbar với phong cách Wabi-sabi 2025 */
   .wabi-navbar {
     background-color: var(--color-rice);
-    border-bottom: 1px solid var(--color-stone-light);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(165, 141, 127, 0.1);
   }
   
-  /* Footer với phong cách Wabi-sabi */
+  /* Footer với phong cách Wabi-sabi 2025 */
   .wabi-footer {
     background-color: var(--color-wood-dark);
     color: var(--color-rice);
@@ -259,21 +273,22 @@
     }
   }
   
-  /* Thanh tìm kiếm với phong cách Wabi-sabi */
+  /* Thanh tìm kiếm với phong cách Wabi-sabi 2025 */
   .wabi-search {
-    border: 1px solid var(--color-stone-light);
+    border: 1px solid rgba(165, 141, 127, 0.2);
     border-radius: var(--radius-full);
     overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    box-shadow: var(--shadow-wabi);
+    backdrop-filter: blur(10px);
   }
   
   .wabi-search input {
-    background-color: var(--color-rice);
+    background-color: rgba(249, 246, 240, 0.8);
     border: none;
   }
   
   .wabi-search button {
-    background-color: var(--color-matcha);
+    background: linear-gradient(135deg, var(--color-matcha), var(--color-moss));
     color: white;
   }
   
@@ -303,12 +318,13 @@
   /* Badge */
   .wabi-badge {
     @apply inline-flex items-center justify-center;
-    background-color: var(--color-matcha-light);
-    color: var(--color-matcha-dark);
+    background: linear-gradient(135deg, var(--color-matcha-light), var(--color-matcha));
+    color: white;
     font-size: 0.75rem;
     padding: 0.25rem 0.75rem;
     border-radius: var(--radius-full);
     letter-spacing: 0.05em;
+    box-shadow: var(--shadow-wabi);
   }
   
   /* Grid layout với tỉ lệ vàng */
@@ -347,16 +363,42 @@
   
   /* Shadow styles */
   .shadow-wabi {
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    box-shadow: var(--shadow-wabi);
   }
   
   .shadow-wabi-hover {
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-wabi-hover);
+  }
+  
+  .shadow-wabi-3d {
+    box-shadow: var(--shadow-wabi-3d);
+  }
+  
+  .shadow-wabi-depth {
+    box-shadow: var(--shadow-wabi-depth);
   }
   
   /* Texture background */
   .bg-wabi-texture {
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C7C5B' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23A58D7F' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  .bg-wabi-dots {
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23A58D7F' fill-opacity='0.05'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3Ccircle cx='13' cy='13' r='1'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  /* Glass effect */
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow-wabi);
   }
 }
 
@@ -461,7 +503,7 @@
 .reveal {
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.39, 0.575, 0.565, 1);
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .reveal.active {
@@ -512,4 +554,70 @@
   0% { opacity: 0.8; }
   50% { opacity: 1; }
   100% { opacity: 0.8; }
+}
+
+/* Hiệu ứng subtle bounce */
+.animate-subtle-bounce {
+  animation: subtleBounce 6s ease-in-out infinite;
+}
+
+@keyframes subtleBounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-5px) scale(1.01); }
+}
+
+/* Hiệu ứng morph */
+.animate-morph {
+  animation: morph 8s ease-in-out infinite alternate;
+}
+
+@keyframes morph {
+  0% { border-radius: 60% 40% 30% 70%/60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40%/50% 60% 30% 60%; }
+  100% { border-radius: 60% 40% 30% 70%/60% 30% 70% 40%; }
+}
+
+/* Hiệu ứng 3D hover */
+.hover-3d {
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.hover-3d:hover {
+  transform: translateY(-5px) rotateX(5deg) rotateY(5deg);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-matcha), var(--color-moss));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-text-clay {
+  background: linear-gradient(135deg, var(--color-clay), var(--color-terracotta));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Backdrop blur */
+.backdrop-blur-xs {
+  backdrop-filter: blur(2px);
+}
+
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(8px);
+}
+
+.backdrop-blur-lg {
+  backdrop-filter: blur(12px);
 } 

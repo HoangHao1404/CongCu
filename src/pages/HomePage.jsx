@@ -64,7 +64,7 @@ const HomePage = () => {
     {
       id: 1,
       title: 'Thời trang bền vững',
-      subtitle: 'Bộ sưu tập Thu - Đông 2023',
+      subtitle: 'Bộ sưu tập Thu - Đông 2025',
       description: 'Khám phá vẻ đẹp từ sự không hoàn hảo theo triết lý Wabi-sabi',
       image: 'https://images.unsplash.com/photo-1583001810204-15f5e2e744b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
       link: '/category/ao',
@@ -121,7 +121,7 @@ const HomePage = () => {
   return (
     <div className="bg-rice bg-wabi-texture">
       {/* Hero Banner - Full width, impactful */}
-      <div className="relative h-[85vh] overflow-hidden">
+      <div className="relative h-[90vh] overflow-hidden">
         <div className="absolute inset-0 flex transition-transform duration-1000 ease-in-out" style={{ transform: `translateX(-${activeSlide * 100}%)` }}>
           {banners.map((banner, index) => (
             <div key={banner.id} className="relative w-full h-full flex-shrink-0">
@@ -130,26 +130,26 @@ const HomePage = () => {
                 alt={banner.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-wood-dark bg-opacity-30 flex items-center">
+              <div className="absolute inset-0 bg-gradient-to-r from-wood-dark/60 to-transparent flex items-center">
                 <div className="container mx-auto px-4">
                   <div className="max-w-2xl slide-in-left">
-                    <p className="text-rice text-lg md:text-xl tracking-widest uppercase mb-3 font-light">{banner.subtitle}</p>
+                    <p className="text-rice text-lg md:text-xl tracking-widest uppercase mb-3 font-light bg-wood-dark/30 inline-block px-4 py-1 rounded-full backdrop-blur-sm">{banner.subtitle}</p>
                     <h1 className="text-5xl md:text-7xl font-serif text-rice mb-6 leading-tight text-shadow">
                       {banner.title}
                     </h1>
-                    <p className="text-xl text-rice mb-8 max-w-lg">
+                    <p className="text-xl text-rice mb-8 max-w-lg backdrop-blur-xs bg-wood-dark/10 p-4 rounded-xl">
                       {banner.description}
                     </p>
                     <div className="flex flex-wrap gap-4">
                       <Link
                         to={banner.link}
-                        className="btn btn-primary btn-ripple px-8 py-3 text-lg rounded-full"
+                        className="bg-gradient-wabi from-matcha to-moss text-white px-8 py-3 text-lg rounded-full shadow-wabi-3d hover:shadow-wabi-depth transition-all transform hover:-translate-y-1"
                       >
                         Khám phá ngay
                       </Link>
                       <Link
                         to="/category/featured"
-                        className="btn bg-rice text-wood-dark hover:bg-stone-light px-8 py-3 text-lg flex items-center rounded-full"
+                        className="glass-effect text-rice px-8 py-3 text-lg flex items-center rounded-full hover:bg-white/20 transition-all"
                       >
                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 8V6a2 2 0 012-2h2M4 16v2a2 2 0 002 2h2M16 4h2a2 2 0 012 2v2M16 20h2a2 2 0 002-2v-2"></path>
@@ -171,7 +171,7 @@ const HomePage = () => {
               key={index}
               onClick={() => setActiveSlide(index)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                activeSlide === index ? 'bg-rice w-6' : 'bg-rice bg-opacity-50'
+                activeSlide === index ? 'bg-rice w-8 shadow-wabi' : 'bg-rice/50'
               }`}
               aria-label={`Slide ${index + 1}`}
             />
@@ -187,7 +187,7 @@ const HomePage = () => {
       </div>
       
       {/* USP Section - Why choose us */}
-      <section className="py-16 bg-stone-light bg-opacity-30">
+      <section className="py-16 bg-stone-light/30 backdrop-blur-xs">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 reveal">
             <h2 className="text-3xl md:text-4xl font-serif text-wood-dark mb-4 wabi-title">Triết lý Wabi-sabi</h2>
@@ -200,12 +200,12 @@ const HomePage = () => {
             {features.map((feature, index) => (
               <div 
                 key={index}
-                className="bg-white p-8 rounded-2xl shadow-wabi border border-stone-light text-center transform transition-all duration-500 hover:-translate-y-1 hover:shadow-wabi-hover stagger-item"
+                className="glass-card p-8 rounded-xl shadow-wabi border border-white/20 text-center transform transition-all duration-500 hover:-translate-y-2 hover:shadow-wabi-3d stagger-item hover-3d"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-matcha-light bg-opacity-20 mb-4 text-matcha-dark">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-wabi from-matcha to-moss-light mb-4 text-white shadow-wabi">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-serif text-wood-dark mb-3">{feature.title}</h3>
+                <h3 className="text-xl font-serif gradient-text mb-3">{feature.title}</h3>
                 <p className="text-stone-dark">{feature.description}</p>
               </div>
             ))}
@@ -223,19 +223,19 @@ const HomePage = () => {
               <CategoryMenu />
               
               {/* Secondary Banner */}
-              <div className="mt-10 rounded-2xl overflow-hidden border border-stone-light reveal">
+              <div className="mt-10 rounded-xl overflow-hidden shadow-wabi-depth reveal">
                 <div className="relative img-hover-zoom">
                   <img
                     src={banners[1].image}
                     alt={banners[1].title}
                     className="w-full h-64 object-cover"
                   />
-                  <div className="absolute inset-0 bg-wood-dark bg-opacity-40 flex flex-col justify-center items-center p-6">
+                  <div className="absolute inset-0 bg-gradient-to-t from-wood-dark/80 via-wood-dark/40 to-transparent flex flex-col justify-end items-center p-6">
                     <h3 className="text-2xl font-serif text-rice text-center mb-3 text-shadow-sm">{banners[1].title}</h3>
                     <p className="text-rice text-center mb-5">{banners[1].description}</p>
                     <Link
                       to={banners[1].link}
-                      className="bg-rice text-wood-dark px-6 py-2 rounded-full hover:bg-stone-light transition-colors btn-hover-float"
+                      className="glass-effect text-rice px-6 py-2 rounded-full hover:bg-white/20 transition-colors btn-hover-float"
                     >
                       Xem ngay
                     </Link>
@@ -275,16 +275,16 @@ const HomePage = () => {
             </div>
             
             {/* Thủ công tinh tế Banner */}
-            <div className="bg-stone-light bg-opacity-30 rounded-2xl p-8 mb-12 reveal overflow-hidden">
+            <div className="glass-card rounded-xl p-8 mb-12 reveal overflow-hidden">
               <div className="flex flex-col md:flex-row items-center">
                 <div className="mb-6 md:mb-0 md:mr-8 md:w-1/2">
-                  <h3 className="text-3xl font-serif text-wood-dark mb-3">Thủ công tinh tế</h3>
+                  <h3 className="text-3xl font-serif gradient-text mb-3">Thủ công tinh tế</h3>
                   <p className="text-stone-dark mb-5 text-lg">
                     Mỗi sản phẩm là một tác phẩm nghệ thuật được tạo ra bởi những nghệ nhân lành nghề, mang đậm dấu ấn văn hóa và tinh thần Wabi-sabi.
                   </p>
                   <Link
                     to="/category/featured"
-                    className="btn btn-primary inline-flex items-center btn-hover-float rounded-full"
+                    className="bg-gradient-wabi from-matcha to-moss text-white px-6 py-2 rounded-full inline-flex items-center shadow-wabi hover:shadow-wabi-3d transition-all transform hover:-translate-y-1"
                   >
                     Khám phá bộ sưu tập
                   </Link>
@@ -293,10 +293,10 @@ const HomePage = () => {
                   <img 
                     src="https://images.unsplash.com/photo-1603031616621-9c8b9c08a2b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
                     alt="Thủ công tinh tế" 
-                    className="w-full h-64 object-cover rounded-lg shadow-wabi"
+                    className="w-full h-64 object-cover rounded-lg shadow-wabi-depth"
                   />
-                  <div className="absolute -bottom-4 -right-4 hidden md:block">
-                    <div className="bg-matcha w-16 h-16 rounded-full flex items-center justify-center text-white shadow-lg">
+                  <div className="absolute -bottom-4 -right-4 hidden md:block animate-subtle-bounce">
+                    <div className="bg-gradient-wabi from-matcha to-moss w-16 h-16 rounded-full flex items-center justify-center text-white shadow-wabi-3d">
                       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
                       </svg>
@@ -335,10 +335,10 @@ const HomePage = () => {
         </div>
         
         {/* Philosophy Section */}
-        <div className="bg-white rounded-2xl shadow-wabi border border-stone-light p-8 md:p-12 mb-16 reveal" ref={philosophyRef}>
+        <div className="glass-card rounded-xl shadow-wabi-depth p-8 md:p-12 mb-16 reveal" ref={philosophyRef}>
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-              <h2 className="text-3xl font-serif text-wood-dark mb-6">Triết lý Wabi-sabi</h2>
+              <h2 className="text-3xl font-serif gradient-text mb-6">Triết lý Wabi-sabi</h2>
               <p className="text-stone-dark mb-4 text-lg">
                 Wabi-sabi là triết lý thẩm mỹ Nhật Bản về vẻ đẹp của sự không hoàn hảo, không vĩnh cửu và không trọn vẹn.
               </p>
@@ -346,10 +346,10 @@ const HomePage = () => {
                 Mỗi sản phẩm của chúng tôi đều mang đặc tính độc đáo, thể hiện sự trân trọng đối với vẻ đẹp tự nhiên và tính chất thủ công.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link to="/about" className="btn btn-secondary btn-hover-float rounded-full">
+                <Link to="/about" className="bg-gradient-wabi from-wood-light to-wood text-white px-6 py-2 rounded-full shadow-wabi hover:shadow-wabi-3d transition-all transform hover:-translate-y-1">
                   Tìm hiểu thêm
                 </Link>
-                <Link to="/category/featured" className="btn btn-outline btn-hover-float rounded-full">
+                <Link to="/category/featured" className="border border-wood-light text-wood-dark px-6 py-2 rounded-full hover:bg-wood-light/10 transition-all">
                   Khám phá bộ sưu tập
                 </Link>
               </div>
@@ -359,13 +359,13 @@ const HomePage = () => {
                 <img 
                   src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
                   alt="Wabi-sabi philosophy" 
-                  className="w-full h-64 md:h-80 object-cover rounded-2xl"
+                  className="w-full h-64 md:h-80 object-cover rounded-xl shadow-wabi"
                 />
-                <div className="absolute -bottom-4 -right-4 hidden md:block">
+                <div className="absolute -bottom-4 -right-4 hidden md:block animate-subtle-bounce">
                   <img 
                     src="https://images.unsplash.com/photo-1563911892437-1feda0179e1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" 
                     alt="Pottery" 
-                    className="w-32 h-32 object-cover rounded-2xl border-4 border-rice shadow-wabi"
+                    className="w-32 h-32 object-cover rounded-xl border-4 border-rice shadow-wabi-3d"
                   />
                 </div>
               </div>
@@ -374,8 +374,8 @@ const HomePage = () => {
         </div>
         
         {/* Newsletter Subscription */}
-        <div className="bg-wood bg-opacity-10 rounded-2xl p-8 md:p-12 text-center mb-16 reveal">
-          <h2 className="text-2xl md:text-3xl font-serif text-wood-dark mb-4">Đăng ký nhận thông tin</h2>
+        <div className="bg-gradient-wabi from-matcha/10 to-moss/10 rounded-xl p-8 md:p-12 text-center mb-16 reveal backdrop-blur-xs">
+          <h2 className="text-2xl md:text-3xl font-serif gradient-text mb-4">Đăng ký nhận thông tin</h2>
           <p className="text-stone-dark mb-8 max-w-2xl mx-auto">
             Nhận thông tin về bộ sưu tập mới, sự kiện đặc biệt và những câu chuyện thú vị về triết lý Wabi-sabi
           </p>
@@ -383,10 +383,10 @@ const HomePage = () => {
             <input 
               type="email" 
               placeholder="Email của bạn" 
-              className="input flex-grow py-3 rounded-full"
+              className="input flex-grow py-3 rounded-full shadow-wabi"
               required
             />
-            <button type="submit" className="btn btn-primary whitespace-nowrap rounded-full">
+            <button type="submit" className="bg-gradient-wabi from-matcha to-moss text-white whitespace-nowrap rounded-full py-3 px-6 shadow-wabi hover:shadow-wabi-3d transition-all transform hover:-translate-y-1">
               Đăng ký
             </button>
           </form>
@@ -394,10 +394,10 @@ const HomePage = () => {
       </div>
       
       {/* Instagram Feed Section */}
-      <section className="py-16 bg-stone-light bg-opacity-20">
+      <section className="py-16 bg-stone-light/20 backdrop-blur-xs">
         <div className="container mx-auto px-4">
           <div className="text-center mb-10 reveal">
-            <h2 className="text-2xl font-serif text-wood-dark mb-3 wabi-title">@wabi_shop</h2>
+            <h2 className="text-2xl font-serif gradient-text mb-3">@wabi_shop</h2>
             <p className="text-stone-dark">Theo dõi chúng tôi trên Instagram</p>
           </div>
           
@@ -406,7 +406,7 @@ const HomePage = () => {
               <a 
                 key={item} 
                 href="#" 
-                className="block overflow-hidden rounded-2xl aspect-square img-hover-zoom"
+                className="block overflow-hidden rounded-xl aspect-square img-hover-zoom shadow-wabi hover:shadow-wabi-3d transition-all"
                 aria-label="Instagram post"
               >
                 <img 

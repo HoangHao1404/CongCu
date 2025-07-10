@@ -96,7 +96,7 @@ const UploadImagePage = () => {
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-8">Tìm kiếm sản phẩm bằng hình ảnh</h1>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      <div className="flex flex-col gap-8 mb-12">
         <div>
           {/* Upload Section */}
           <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
@@ -170,41 +170,6 @@ const UploadImagePage = () => {
                   </>
                 )}
               </button>
-            </div>
-          </div>
-          
-          {/* Instructions */}
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h2 className="text-xl font-bold mb-4">Hướng dẫn sử dụng</h2>
-            
-            <div className="space-y-4">
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mr-3">
-                  1
-                </div>
-                <p>Tải lên hình ảnh sản phẩm bạn muốn tìm (quần áo, giày dép, phụ kiện...)</p>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mr-3">
-                  2
-                </div>
-                <p>Nhấn nút "Tìm sản phẩm tương tự" để bắt đầu tìm kiếm</p>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mr-3">
-                  3
-                </div>
-                <p>Hệ thống AI sẽ phân tích hình ảnh và hiển thị các sản phẩm tương tự</p>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mr-3">
-                  4
-                </div>
-                <p>Chọn sản phẩm bạn thích và thêm vào giỏ hàng</p>
-              </div>
             </div>
           </div>
         </div>

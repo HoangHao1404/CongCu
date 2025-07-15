@@ -99,7 +99,7 @@ const Navbar = () => {
                   Wabi Shop
                 </span>
                 <span className="block text-xs text-stone-dark font-sans tracking-widest uppercase">
-                  VẺ ĐẸP TỪ SỰ KHÔNG HOÀN HẢO • 2025
+                  VẺ ĐẸP TỪ SỰ KHÔNG HOÀN HẢO
                 </span>
               </div>
             </Link>

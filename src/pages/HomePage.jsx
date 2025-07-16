@@ -26,7 +26,7 @@ const HomePage = () => {
     // For now, we'll simulate by setting them after the main fetch
     setTimeout(() => {
       if (products.length > 0) {
-        setFeaturedProducts(products.slice(0, 4));
+        setFeaturedProducts(products.slice(0, 6));
         setNewArrivals(products.slice(0, 8));
       }
     }, 100);
@@ -66,7 +66,7 @@ const HomePage = () => {
       title: 'Thời trang bền vững',
       subtitle: 'Bộ sưu tập Thu - Đông 2025',
       description: 'Khám phá vẻ đẹp từ sự không hoàn hảo theo triết lý Wabi-sabi',
-      image: 'https://images.unsplash.com/photo-1583001810204-15f5e2e744b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+      image: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
       link: '/category/ao',
     },
     {
@@ -74,7 +74,7 @@ const HomePage = () => {
       title: 'Vẻ đẹp mộc mạc',
       subtitle: 'Từ thiên nhiên đến trang phục',
       description: 'Chất liệu tự nhiên, kỹ thuật truyền thống, tôn vinh vẻ đẹp giản đơn',
-      image: 'https://images.unsplash.com/photo-1550047510-40e88d132d41?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+      image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
       link: '/category/giay',
     },
     {
@@ -123,45 +123,48 @@ const HomePage = () => {
       {/* Hero Banner - Full width, impactful */}
       <div className="relative h-[90vh] overflow-hidden">
         <div className="absolute inset-0 flex transition-transform duration-1000 ease-in-out" style={{ transform: `translateX(-${activeSlide * 100}%)` }}>
-          {banners.map((banner, index) => (
-            <div key={banner.id} className="relative w-full h-full flex-shrink-0">
-              <img
-                src={banner.image}
-                alt={banner.title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-wood-dark/60 to-transparent flex items-center">
-                <div className="container mx-auto px-4">
-                  <div className="max-w-2xl slide-in-left">
-                    <p className="text-rice text-lg md:text-xl tracking-widest uppercase mb-3 font-light bg-wood-dark/30 inline-block px-4 py-1 rounded-full backdrop-blur-sm">{banner.subtitle}</p>
-                    <h1 className="text-5xl md:text-7xl font-serif text-rice mb-6 leading-tight text-shadow">
-                      {banner.title}
-                    </h1>
-                    <p className="text-xl text-rice mb-8 max-w-lg backdrop-blur-xs bg-wood-dark/10 p-4 rounded-xl">
-                      {banner.description}
-                    </p>
-                    <div className="flex flex-wrap gap-4">
-                      <Link
-                        to={banner.link}
-                        className="bg-gradient-wabi from-matcha to-moss text-white px-8 py-3 text-lg rounded-full shadow-wabi-3d hover:shadow-wabi-depth transition-all transform hover:-translate-y-1"
-                      >
-                        Khám phá ngay
-                      </Link>
-                      <Link
-                        to="/category/featured"
-                        className="glass-effect text-rice px-8 py-3 text-lg flex items-center rounded-full hover:bg-white/20 transition-all"
-                      >
-                        <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 8V6a2 2 0 012-2h2M4 16v2a2 2 0 002 2h2M16 4h2a2 2 0 012 2v2M16 20h2a2 2 0 002-2v-2"></path>
-                        </svg>
-                        Bộ sưu tập
-                      </Link>
+          {banners.map((banner, index) => {
+            console.log('Banner image:', banner.image);
+            return (
+              <div key={banner.id} className="relative w-full h-full flex-shrink-0">
+                <img
+                  src={banner.image}
+                  alt={banner.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-wood-dark/60 to-transparent flex items-center">
+                  <div className="container mx-auto px-4">
+                    <div className="max-w-2xl slide-in-left">
+                      <p className="text-rice text-lg md:text-xl tracking-widest uppercase mb-3 font-light bg-wood-dark/30 inline-block px-4 py-1 rounded-full backdrop-blur-sm">{banner.subtitle}</p>
+                      <h1 className="text-5xl md:text-7xl font-serif text-rice mb-6 leading-tight text-shadow">
+                        {banner.title}
+                      </h1>
+                      <p className="text-xl text-rice mb-8 max-w-lg backdrop-blur-xs bg-wood-dark/10 p-4 rounded-xl">
+                        {banner.description}
+                      </p>
+                      <div className="flex flex-wrap gap-4">
+                        <Link
+                          to={banner.link}
+                          className="bg-gradient-wabi from-matcha to-moss text-white px-8 py-3 text-lg rounded-full shadow-wabi-3d hover:shadow-wabi-depth transition-all transform hover:-translate-y-1"
+                        >
+                          Khám phá ngay
+                        </Link>
+                        <Link
+                          to="/category/featured"
+                          className="glass-effect text-rice px-8 py-3 text-lg flex items-center rounded-full hover:bg-white/20 transition-all"
+                        >
+                          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 8V6a2 2 0 012-2h2M4 16v2a2 2 0 002 2h2M16 4h2a2 2 0 012 2v2M16 20h2a2 2 0 002-2v-2"></path>
+                          </svg>
+                          Bộ sưu tập
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
         
         {/* Slider controls */}
@@ -265,7 +268,7 @@ const HomePage = () => {
                 </div>
               ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {(featuredProducts.length > 0 ? featuredProducts : products.slice(0, 3)).map((product, index) => (
+                  {(featuredProducts.length > 0 ? featuredProducts : products.slice(0, 6)).map((product, index) => (
                     <div key={product.id} className={`stagger-item delay-${index * 100}`}>
                       <ProductCard product={product} />
                     </div>
@@ -291,7 +294,7 @@ const HomePage = () => {
                 </div>
                 <div className="md:w-1/2 relative">
                   <img 
-                    src="https://images.unsplash.com/photo-1603031616621-9c8b9c08a2b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                    src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
                     alt="Thủ công tinh tế" 
                     className="w-full h-64 object-cover rounded-lg shadow-wabi-depth"
                   />
@@ -324,11 +327,14 @@ const HomePage = () => {
           ) : (
             <div className="overflow-x-auto pb-4 md:overflow-visible">
               <div className="flex md:grid md:grid-cols-4 gap-6 w-max md:w-auto">
-                {(newArrivals.length > 0 ? newArrivals : products).map((product, index) => (
-                  <div key={product.id} className="w-64 md:w-auto stagger-item" style={{animationDelay: `${index * 100}ms`}}>
-                    <ProductCard product={product} />
-                  </div>
-                ))}
+                {(newArrivals.length > 0 ? newArrivals : products).map((product, index) => {
+                  console.log('New Arrival image:', product.image);
+                  return (
+                    <div key={product.id} className="w-64 md:w-auto stagger-item" style={{animationDelay: `${index * 100}ms`}}>
+                      <ProductCard product={product} />
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}

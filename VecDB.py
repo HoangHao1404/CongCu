@@ -8,7 +8,7 @@ class FaissIndexer:
         """
         self.dim = dim
         try:
-            self.index = faiss.read_index("flat_l2_custom.index")
+            self.index = faiss.read_index(index_path)
         except:
             self.index = faiss.IndexFlatIP(dim)  # Inner Product = Cosine nếu normalized
         self.id_map = {}  # map từ internal index → item_id (hoặc filename...)

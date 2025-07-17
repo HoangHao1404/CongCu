@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 
 class YoloCropper:
-    def __init__(self, model_path: str):
+    def __init__(self, model_path: str="Yolo/deepfashion2_yolov8s-seg.pt"):
         self.model = YOLO(model_path)
 
     def detect_and_crop_highest_conf(self, image):

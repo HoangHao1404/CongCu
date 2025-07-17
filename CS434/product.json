@@ -1,0 +1,480 @@
+[{
+  "_id": {
+    "$oid": "68569a4fd272deb6a7ea9836"
+  },
+  "product_code": "blazer_001",
+  "name": "Blazer xám cổ điển",
+  "description": "Blazer dáng basic màu xám tro, vải mịn, thích hợp công sở.",
+  "price": 489000,
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750505924/m93123871390_1_enuzc3.jpg",
+  "created_at": "2025-06-18T09:00:00Z",
+  "category_id": "665f34b0e123456789abcd07"
+},
+{
+  "_id": {
+    "$oid": "68569a4fd272deb6a7ea9837"
+  },
+  "product_code": "blazer_002",
+  "name": "Blazer đen ôm dáng",
+  "description": "Form slim-fit, lịch sự và thời trang.",
+  "price": 519000,
+  "category_id": "665f34b0e123456789abcd07",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750587096/c43d0a455820fbeb9dbeaa7685bed94f04bf220e_lgsvpx.jpg",
+  "created_at": "2025-06-18T09:01:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569a4fd272deb6a7ea9838"
+  },
+  "product_code": "blazer_003",
+  "name": "Blazer xanh navy",
+  "description": "Chất vải dày dặn, đứng form, phù hợp môi trường nghiêm túc.",
+  "price": 499000,
+  "category_id": "665f34b0e123456789abcd07",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750587174/hbeu50490035_404_100_uqcodb.jpg",
+  "created_at": "2025-06-18T09:02:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569a4fd272deb6a7ea9839"
+  },
+  "product_code": "blazer_004",
+  "name": "Blazer nâu vintage",
+  "description": "Tone màu retro, phong cách Hàn Quốc.",
+  "price": 475000,
+  "category_id": "665f34b0e123456789abcd07",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750587174/hbeu50490035_404_100_uqcodb.jpg",
+  "created_at": "2025-06-18T09:03:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569a4fd272deb6a7ea983a"
+  },
+  "product_code": "blazer_005",
+  "name": "Blazer kẻ caro",
+  "description": "Họa tiết caro nhẹ, trẻ trung và dễ phối đồ.",
+  "price": 489000,
+  "category_id": "665f34b0e123456789abcd07",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750505921/m45279487029_7_yudcjg.jpg",
+  "created_at": "2025-06-18T09:04:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569a4fd272deb6a7ea983b"
+  },
+  "product_code": "blazer_006",
+  "name": "Blazer oversize nữ",
+  "description": "Form rộng, phong cách đường phố cá tính.",
+  "price": 459000,
+  "category_id": "665f34b0e123456789abcd07",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750505919/m_677ab060dc8a4e7617322da9_igu6ie.jpg",
+  "created_at": "2025-06-18T09:05:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569a4fd272deb6a7ea983c"
+  },
+  "product_code": "blazer_007",
+  "name": "Blazer màu kem sáng",
+  "description": "Màu sắc thanh lịch, dễ kết hợp chân váy/quần.",
+  "price": 509000,
+  "category_id": "665f34b0e123456789abcd07",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750505921/m91047993611_1_kd2j8z.jpg",
+  "created_at": "2025-06-18T09:06:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569a4fd272deb6a7ea983d"
+  },
+  "product_code": "blazer_008",
+  "name": "Blazer 2 nút basic",
+  "description": "Thiết kế tối giản, phù hợp môi trường văn phòng.",
+  "price": 479000,
+  "category_id": "665f34b0e123456789abcd07",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750505920/s-l400_hqqds5.jpg",
+  "created_at": "2025-06-18T09:07:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569a4fd272deb6a7ea983e"
+  },
+  "product_code": "blazer_009",
+  "name": "Blazer phối túi hộp",
+  "description": "Thời trang và tiện dụng, túi hộp nổi bật.",
+  "price": 499000,
+  "category_id": "665f34b0e123456789abcd07",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750505920/m36294042047_1_xejig0.jpg",
+  "created_at": "2025-06-18T09:08:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569a4fd272deb6a7ea983f"
+  },
+  "product_code": "blazer_010",
+  "name": "Blazer vải lụa nhung",
+  "description": "Chất liệu cao cấp, mềm mại, sang trọng.",
+  "price": 539000,
+  "category_id": "665f34b0e123456789abcd07",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750505919/s-l1200_vmplrl.jpg",
+  "created_at": "2025-06-18T09:09:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569cd4d272deb6a7ea9841"
+  },
+  "product_code": "pants_001",
+  "name": "Quần âu nam đen basic",
+  "description": "Form slim, màu đen truyền thống, thích hợp công sở.",
+  "price": 359000,
+  "category_id": "665f34b0e123456789abcd08",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750587340/quan-tay-icondenim-metro-ease__4__ddc4b299c61843389fbe04763e5d4bd8_1024x1024_a9uznk.jpg",
+  "created_at": "2025-06-18T09:10:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569cd4d272deb6a7ea9842"
+  },
+  "product_code": "pants_002",
+  "name": "Quần tây xám cổ điển",
+  "description": "Chất vải mịn, đứng form, phù hợp nhiều dịp.",
+  "price": 379000,
+  "category_id": "665f34b0e123456789abcd08",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750587427/cuda__14__39a3fc23bca345d485715f7373acb448_1024x1024_xqljg6.jpg",
+  "created_at": "2025-06-18T09:11:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569cd4d272deb6a7ea9843"
+  },
+  "product_code": "pants_003",
+  "name": "Quần âu nâu nhạt",
+  "description": "Tông màu Hàn Quốc, vải co giãn nhẹ.",
+  "price": 365000,
+  "category_id": "665f34b0e123456789abcd08",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750506878/-16875_uubrvs.jpg",
+  "created_at": "2025-06-18T09:12:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569cd4d272deb6a7ea9844"
+  },
+  "product_code": "pants_004",
+  "name": "Quần tây xếp ly",
+  "description": "Xếp ly trước cổ điển, lịch sự, dễ phối áo sơ mi.",
+  "price": 389000,
+  "category_id": "665f34b0e123456789abcd08",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750587532/xam_f3636e8e10a94a77b4b1ab53cbfe0d7b_xbkcer.jpg",
+  "created_at": "2025-06-18T09:13:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569cd4d272deb6a7ea9845"
+  },
+  "product_code": "pants_005",
+  "name": "Quần âu nam form rộng",
+  "description": "Phong cách retro, phối sneaker rất đẹp.",
+  "price": 375000,
+  "category_id": "665f34b0e123456789abcd08",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750587600/qkk02_1000x1000_0032_layer_3_458082d97ca84d63ae46a47cbfd491f2_juexzl.jpg",
+  "created_at": "2025-06-18T09:14:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569cd4d272deb6a7ea9846"
+  },
+  "product_code": "pants_006",
+  "name": "Quần tây màu be",
+  "description": "Màu trung tính dễ phối, vải mềm co giãn.",
+  "price": 369000,
+  "category_id": "665f34b0e123456789abcd08",
+  "image_url": "Quần tây màu be",
+  "created_at": "2025-06-18T09:15:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569cd4d272deb6a7ea9847"
+  },
+  "product_code": "pants_007",
+  "name": "Quần âu nam túi chéo",
+  "description": "Túi chéo tiện lợi, vải chống nhăn nhẹ.",
+  "price": 389000,
+  "category_id": "665f34b0e123456789abcd08",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750587699/10-min-9eff9312-008b-45cb-abe2-9b93d952b1f1_uz5x2r.png",
+  "created_at": "2025-06-18T09:16:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569cd4d272deb6a7ea9848"
+  },
+  "product_code": "pants_008",
+  "name": "Quần tây công sở",
+  "description": "Form đứng, ống côn, lịch sự chuyên nghiệp.",
+  "price": 399000,
+  "category_id": "665f34b0e123456789abcd08",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750587749/quan-tay-cong-so-nu-mau-den-qcs04-16_tji205.jpg",
+  "created_at": "2025-06-18T09:17:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569cd4d272deb6a7ea9849"
+  },
+  "product_code": "pants_009",
+  "name": "Quần âu xanh navy",
+  "description": "Chất vải dày, sang trọng, ít nhăn.",
+  "price": 419000,
+  "category_id": "665f34b0e123456789abcd08",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750587780/20230703_WYnxQL2w9g_brzkn8.jpg",
+  "created_at": "2025-06-18T09:18:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569cd4d272deb6a7ea984a"
+  },
+  "product_code": "pants_010",
+  "name": "Quần tây lưng thun",
+  "description": "Dễ mặc, phù hợp di chuyển cả ngày.",
+  "price": 355000,
+  "category_id": "665f34b0e123456789abcd08",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750587819/q-1-9_f6a90c0da285448b9763fc3a5235693c_master_prkr1r.jpg",
+  "created_at": "2025-06-18T09:19:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569f52d272deb6a7ea984c"
+  },
+  "product_code": "shirt_001",
+  "name": "Sơ mi trắng cổ điển",
+  "description": "Vải cotton, cổ điển, phù hợp công sở hoặc đi học.",
+  "price": 279000,
+  "category_id": "665f34b0e123456789abcd02",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750587865/01309601250-e1_kqtdmu.jpg",
+  "created_at": "2025-06-18T09:20:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569f52d272deb6a7ea984d"
+  },
+  "product_code": "shirt_002",
+  "name": "Sơ mi kẻ sọc xanh",
+  "description": "Màu sắc tươi sáng, dễ phối quần jean hoặc kaki.",
+  "price": 295000,
+  "category_id": "665f34b0e123456789abcd02",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750587910/goods_458283_sub17_3x4_eesbmp.jpg",
+  "created_at": "2025-06-18T09:21:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569f52d272deb6a7ea984e"
+  },
+  "product_code": "shirt_003",
+  "name": "Sơ mi denim nam",
+  "description": "Chất liệu denim nhẹ, cá tính, mạnh mẽ.",
+  "price": 319000,
+  "category_id": "665f34b0e123456789abcd02",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750587937/smtn_jean_2212063-nl-min_c867d96d35f54c71bdcce5551911b368_mliqut.jpg",
+  "created_at": "2025-06-18T09:22:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569f52d272deb6a7ea984f"
+  },
+  "product_code": "shirt_004",
+  "name": "Sơ mi caro đỏ đen",
+  "description": "Phong cách streetwear, thích hợp với áo thun bên trong.",
+  "price": 305000,
+  "category_id": "665f34b0e123456789abcd02",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750587980/so_mi_do_caro_coc_tay_3d4b8c03846b4c368d9f5c8786fc1da5_snsltg.jpg",
+  "created_at": "2025-06-18T09:23:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569f52d272deb6a7ea9850"
+  },
+  "product_code": "shirt_005",
+  "name": "Sơ mi oversize nữ",
+  "description": "Form rộng, thời trang Hàn Quốc, chất mát.",
+  "price": 289000,
+  "category_id": "665f34b0e123456789abcd02",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750588024/19cb2375b23a4d8fa48899ef66bfe655_vbjjve.jpg",
+  "created_at": "2025-06-18T09:24:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569f52d272deb6a7ea9851"
+  },
+  "product_code": "shirt_006",
+  "name": "Sơ mi cổ tàu màu be",
+  "description": "Thiết kế thanh lịch, phù hợp cả nam và nữ.",
+  "price": 315000,
+  "category_id": "665f34b0e123456789abcd02",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750588079/ao-dui-so-mi-nam-co-tau-ke-dai-tay-xanh-ghi-NWTa_wc1mac.webp",
+  "created_at": "2025-06-18T09:25:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569f52d272deb6a7ea9852"
+  },
+  "product_code": "shirt_007",
+  "name": "Sơ mi tay lỡ unisex",
+  "description": "Tay lỡ cá tính, phối đồ dễ dàng cho cả nam nữ.",
+  "price": 299000,
+  "category_id": "665f34b0e123456789abcd02",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750588112/2c56e4eea8c44af180f8525632a3ff0c_cdg1gu.png",
+  "created_at": "2025-06-18T09:26:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569f52d272deb6a7ea9853"
+  },
+  "product_code": "shirt_008",
+  "name": "Sơ mi linen trắng",
+  "description": "Vải linen thoáng mát, nhẹ nhàng mùa hè.",
+  "price": 335000,
+  "category_id": "665f34b0e123456789abcd02",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750588125/z4575261634783-8ec3855cbbc29a91a0a73850604ad6b4-1691149628487_ebpknr.jpg",
+  "created_at": "2025-06-18T09:27:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569f52d272deb6a7ea9854"
+  },
+  "product_code": "shirt_009",
+  "name": "Sơ mi xanh baby",
+  "description": "Tông màu pastel dịu nhẹ, lịch sự và thanh lịch.",
+  "price": 295000,
+  "category_id": "665f34b0e123456789abcd02",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750588169/bn5j3jiozcn4hvfxndrt.jpg",
+  "created_at": "2025-06-18T09:28:00Z"
+},
+{
+  "_id": {
+    "$oid": "68569f52d272deb6a7ea9855"
+  },
+  "product_code": "shirt_010",
+  "name": "Sơ mi hoạ tiết hoa",
+  "description": "Phù hợp đi chơi biển, dạo phố phong cách.",
+  "price": 309000,
+  "category_id": "665f34b0e123456789abcd02",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750588203/z4361309834213-56cb090ba64ffd16116a70b03c399573-1_jzk6ue.jpg",
+  "created_at": "2025-06-18T09:29:00Z"
+},
+{
+  "_id": {
+    "$oid": "6856a1f9d272deb6a7ea9857"
+  },
+  "product_code": "dress_001",
+  "name": "Đầm hoa nhí cổ tròn",
+  "description": "Vải voan mềm, hoa nhí nữ tính, phù hợp dạo phố.",
+  "price": 349000,
+  "category_id": "665f34b0e123456789abcd06",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750588259/dam-xoe-hoa-nhi-co-tron-tay-phong-hl18-19_u6wprx.jpg",
+  "created_at": "2025-06-18T09:30:00Z"
+},
+{
+  "_id": {
+    "$oid": "6856a1f9d272deb6a7ea9858"
+  },
+  "product_code": "dress_002",
+  "name": "Váy body đen tay dài",
+  "description": "Chất co giãn tốt, tôn dáng, sang trọng.",
+  "price": 379000,
+  "category_id": "665f34b0e123456789abcd06",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750588302/images_aa7t9j.jpg",
+  "created_at": "2025-06-18T09:31:00Z"
+},
+{
+  "_id": {
+    "$oid": "6856a1f9d272deb6a7ea9859"
+  },
+  "product_code": "dress_003",
+  "name": "Đầm trắng cổ vuông",
+  "description": "Phong cách thanh lịch, form xòe nhẹ.",
+  "price": 365000,
+  "category_id": "665f34b0e123456789abcd06",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750588372/1723864318_attach_kiyrjc.webp",
+  "created_at": "2025-06-18T09:32:00Z"
+},
+{
+  "_id": {
+    "$oid": "6856a1f9d272deb6a7ea985a"
+  },
+  "product_code": "dress_004",
+  "name": "Váy midi hồng pastel",
+  "description": "Màu nhẹ nhàng, vải lụa mềm, thoải mái.",
+  "price": 355000,
+  "category_id": "665f34b0e123456789abcd06",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750588410/1-8.jpg_waa4gm.jpg",
+  "created_at": "2025-06-18T09:33:00Z"
+},
+{
+  "_id": {
+    "$oid": "6856a1f9d272deb6a7ea985b"
+  },
+  "product_code": "dress_005",
+  "name": "Đầm dây hoa cổ V",
+  "description": "Phong cách nhẹ nhàng, phù hợp đi chơi biển.",
+  "price": 339000,
+  "category_id": "665f34b0e123456789abcd06",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750588473/tjdm59btjtsw5k0fo8n4.jpg",
+  "created_at": "2025-06-18T09:34:00Z"
+},
+{
+  "_id": {
+    "$oid": "6856a1f9d272deb6a7ea985c"
+  },
+  "product_code": "dress_006",
+  "name": "Váy voan maxi tay phồng",
+  "description": "Dáng dài, tay phồng điệu đà, chất vải mỏng mát.",
+  "price": 379000,
+  "category_id": "665f34b0e123456789abcd06",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750588555/shopping_k8v26w.webp",
+  "created_at": "2025-06-18T09:35:00Z"
+},
+{
+  "_id": {
+    "$oid": "6856a1f9d272deb6a7ea985d"
+  },
+  "product_code": "dress_007",
+  "name": "Đầm công sở kẻ sọc",
+  "description": "Thiết kế thanh lịch, phù hợp môi trường văn phòng.",
+  "price": 389000,
+  "category_id": "665f34b0e123456789abcd06",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750588583/ljaini3hk6samaskjtuj.jpg",
+  "created_at": "2025-06-18T09:36:00Z"
+},
+{
+  "_id": {
+    "$oid": "6856a1f9d272deb6a7ea985e"
+  },
+  "product_code": "dress_008",
+  "name": "Váy ngắn form A",
+  "description": "Form váy chữ A trẻ trung, dễ phối áo.",
+  "price": 319000,
+  "category_id": "665f34b0e123456789abcd06",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750588619/zgzzij44kdpdg4kfovim.jpg",
+  "created_at": "2025-06-18T09:37:00Z"
+},
+{
+  "_id": {
+    "$oid": "6856a1f9d272deb6a7ea985f"
+  },
+  "product_code": "dress_009",
+  "name": "Đầm hai dây dạ tiệc",
+  "description": "Thiết kế gợi cảm, chất liệu satin cao cấp.",
+  "price": 429000,
+  "category_id": "665f34b0e123456789abcd06",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750588651/images_xxxpdh.jpg",
+  "created_at": "2025-06-18T09:38:00Z"
+},
+{
+  "_id": {
+    "$oid": "6856a1f9d272deb6a7ea9860"
+  },
+  "product_code": "dress_010",
+  "name": "Váy cổ yếm thời trang",
+  "description": "Dáng ôm nhẹ, phần cổ yếm cá tính.",
+  "price": 369000,
+  "category_id": "665f34b0e123456789abcd06",
+  "image_url": "https://res.cloudinary.com/dtsark4xu/image/upload/v1750588712/images_qyieah.jpg",
+  "created_at": "2025-06-18T09:39:00Z"
+}]
